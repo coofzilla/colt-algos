@@ -18,7 +18,7 @@ function validAnagram(str1, str2) {
   }
 
   for (let key in strObj1) {
-    if (strObj1[char] !== strObj2[char]) {
+    if (strObj1[key] !== strObj2[key]) {
       return false;
     }
     return true;

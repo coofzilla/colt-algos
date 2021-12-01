@@ -152,8 +152,6 @@ const puzzleInput = [
   5207, 5208, 5181, 5161, 5162, 5164, 5189, 5190, 5170,
 ];
 
-const test = [1, 2, 3, 2, 2, 3];
-
 function increasedCount(arr) {
   let countObject = { increased: 0, decreased: 0 };
 
@@ -169,4 +167,30 @@ function increasedCount(arr) {
   console.log(countObject);
 }
 
-increasedCount(puzzleInput);
+// increasedCount(puzzleInput);
+
+function increasedWindow(arr, num) {
+  let countObject = { increased: 0, decreased: 0 };
+
+  let prevSum = 0;
+  let currSum = 0;
+
+  for (let i = 0; i < num; i++) {
+    prevSum += arr[i];
+  }
+  currSum = prevSum;
+
+  for (let i = num; i < arr.length; i++) {
+    currSum = currSum - arr[i - num] + arr[i];
+    if (currSum > prevSum) {
+      ++countObject.increased;
+    }
+
+    prevSum = currSum;
+  }
+  console.log(countObject);
+}
+
+const test = [1, 1, 2, 2, 3, 3];
+
+increasedWindow(puzzleInput, 3);

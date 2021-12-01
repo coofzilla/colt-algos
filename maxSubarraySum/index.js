@@ -10,14 +10,20 @@ function maxSubarraySum(arr, num) {
   for (let i = 0; i < num; i++) {
     maxSum += arr[i];
   }
-
+  //maxSum = 10 after first loop
   tempSum = maxSum;
+  //tempUm = 10 after first loop
 
   for (let i = num; i < arr.length; i++) {
+    //i = 2 first loop
+    // console.log(i, num, tempSum);
     tempSum = tempSum - arr[i - num] + arr[i];
+    //tempSum = 10 - arr[2-2] + arr[2]
+    //tempSum = 10 - 5 + 5
+    //tempSum = 10
     maxSum = Math.max(maxSum, tempSum);
   }
-  console.log(maxSum);
+
   return maxSum;
 }
 

@@ -1001,8 +1001,6 @@ const puzzleInput = [
   'forward 7',
 ];
 
-const sampleArr = ['forward 4', 'down 7', 'down 4', 'forward 2', 'down 4'];
-
 function finalPosition(position) {
   const final = position.forward * position.depth;
   console.log(final);
@@ -1017,22 +1015,23 @@ function position(arr) {
   let aim = 0;
 
   for (let num of arr) {
+    let posValue = +num.match(/\d+/)[0];
     if (num.includes('forward')) {
-      const posValue = num.match(/\d+/)[0];
-      position.forward = position.forward + parseInt(posValue);
-      const aimIncrease = aim * parseInt(posValue);
-      position.depth = position.depth + parseInt(aimIncrease);
+      position.forward = position.forward + posValue;
+      const aimIncrease = aim * posValue;
+      position.depth = position.depth + aimIncrease;
     } else if (num.includes('up')) {
-      const posValue = num.match(/\d+/)[0];
-
-      aim -= parseInt(posValue);
+      aim -= posValue;
     } else if (num.includes('down')) {
-      const posValue = num.match(/\d+/)[0];
-
-      aim += parseInt(posValue);
+      aim += posValue;
     }
   }
+  console.log(position);
   finalPosition(position);
 }
 
 position(puzzleInput);
+
+//answer
+//{ forward: 1909, depth: 760194 }
+//1451210346

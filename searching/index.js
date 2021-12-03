@@ -9,4 +9,13 @@ function linearSearch(arr, value) {
   return arr.indexOf(value);
 }
 
-console.log(linearSearch(numbers, 65));
+//console.log(linearSearch(numbers, 65));
+
+function linearSearchLoop(arr, value) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === value) return i;
+  }
+  return -1;
+}
+
+console.log(linearSearchLoop(numbers, 65));

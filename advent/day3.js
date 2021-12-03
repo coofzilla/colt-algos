@@ -1099,11 +1099,8 @@ function scrubberRating(arr, j = 0) {
   //from those numbers, filter again but from next position
   //final position always 1
   //do this until end
-  let scrubberRatingArr = [];
-  if (arr.length === 1) return scrubberRatingArr;
-
-  let ones = [];
   let zeros = [];
+  let ones = [];
   let nextArr = [];
 
   for (let num of arr) {
@@ -1118,13 +1115,11 @@ function scrubberRating(arr, j = 0) {
   } else {
     nextArr = ones;
   }
-  if (zeros.length === ones.length) {
-    return (scrubberRatingArr = zeros);
-  }
-  j++;
-  scrubberRatingArr = scrubberRatingArr.concat(scrubberRating(nextArr, j));
 
-  return scrubberRatingArr.join('');
+  if (arr.length === 1) return zeros;
+  j++;
+
+  return scrubberRating(nextArr, j);
 }
 //01010 oxygen sample
 console.log(scrubberRating(puzzleInput));

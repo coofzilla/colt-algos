@@ -23,4 +23,4 @@ function stringSearch(str, searchStr) {
   }
   return count;
 }
-console.log(stringSearch(string, 'the'));
+// console.log(stringSearch(string, 'the'));

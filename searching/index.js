@@ -19,3 +19,9 @@ function linearSearchLoop(arr, value) {
 }
 
 console.log(linearSearchLoop(numbers, 65));
+
+function numberCompare(num1, num2) {
+  console.log(num1, num2);
+  return num1 - num2;
+}
+[6, 4, 15, 10].sort(numberCompare);

@@ -1114,11 +1114,12 @@ function scrubberRating(arr, j = 0) {
     }
   }
   if (zeros.length <= ones.length) {
-    scrubberRatingArr.push(0);
     nextArr = zeros;
   } else {
-    scrubberRatingArr.push(1);
     nextArr = ones;
+  }
+  if (zeros.length === ones.length) {
+    return (scrubberRatingArr = zeros);
   }
   j++;
   scrubberRatingArr = scrubberRatingArr.concat(scrubberRating(nextArr, j));
@@ -1127,6 +1128,5 @@ function scrubberRating(arr, j = 0) {
 }
 //01010 oxygen sample
 console.log(scrubberRating(puzzleInput));
-//011001000001 1601 scrubrating
-//101011101111 2799 oxy
-
+//011001000001 1601dec scrubrating
+//101011101111 2799dec oxy

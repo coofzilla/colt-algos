@@ -1,4 +1,4 @@
-const sampleArr = [5, 3, 4, 1, 2, 3, 50, 22, 3, 2, 87];
+const sampleArr = [9, 1, 2, 3, 4, 5, 6, 8];
 
 function swap(arr, indx1, indx2) {
   let temp = arr[indx1];
@@ -7,13 +7,29 @@ function swap(arr, indx1, indx2) {
 }
 //swap(sampleArr, 0, 1);
 
+// function bubbleSort(arr) {
+//   for (let i = arr.length; i > 0; i--) {
+//     for (let j = 0; j < i - 1; j++) {
+//       if (arr[j] > arr[j + 1]) {
+//         swap(arr, j, j + 1);
+//       }
+//     }
+//   }
+//   return sampleArr;
+// }
+
+//nearly sorted use this
 function bubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
+  let noSwaps;
+  for (let i = arr.length; i > 0; i--) {
+    noSwaps = true;
+    for (let j = 0; j < i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
         swap(arr, j, j + 1);
+        noSwaps = false;
       }
     }
+    if (noSwaps) break;
   }
   return sampleArr;
 }

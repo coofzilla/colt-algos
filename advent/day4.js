@@ -74,22 +74,26 @@ splitBoard(getBoard(sampleInput));
 function numberHit(parsedBoards) {
   let boards = parsedBoards;
 
-  for (let board of boards) {
-    for (let i = 0; i < board.length; i++) {
-      for (let j = 0; j < board.length; j++) {
-        let key = parseInt(Object.keys(board[i][j]));
-        for (let num of randomNumbers) {
-          if (key === num) {
-            ++board[i][j][key];
-          }
-        }
-        for (let row of board) {
-          //Object.values(row[j])[0] === 1
-          // row.every((el, i) => console.log(el, i));
-        }
-      }
-    }
-    console.log(board);
+  // for (let board of boards) {
+  //   for (let i = 0; i < board.length; i++) {
+  //     for (let j = 0; j < board.length; j++) {
+  //       let key = parseInt(Object.keys(board[i][j]));
+  //       for (let num of randomNumbers) {
+  //         if (key === num) {
+  //           ++board[i][j][key];
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  for (let i = 0; i < boards.length; i++) {
+    boards[i].every((el, i) => {
+      console.log(el);
+    });
   }
 }
 numberHit(splitBoard(getBoard(sampleInput)));
+
+// const object = { 22: 0 };
+
+// console.log(Object.keys(object));

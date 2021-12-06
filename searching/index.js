@@ -18,10 +18,10 @@ function linearSearchLoop(arr, value) {
   return -1;
 }
 
-console.log(linearSearchLoop(numbers, 65));
+// console.log(linearSearchLoop(numbers, 65));
 
 function numberCompare(num1, num2) {
-  console.log(num1, num2);
+  // console.log(num1, num2);
   return num1 - num2;
 }
 [6, 4, 15, 10].sort(numberCompare);

@@ -35,8 +35,26 @@ function merge(arr1, arr2) {
     results.push(arr2[j]);
     j++;
   }
-  console.log(results);
+
   return results;
 }
 
-merge([1, 10, 50], [2, 14, 99, 100]);
+//merge([1, 10, 50], [2, 14, 99, 100]);
+
+//break up array into halves until you have arrays that are empty or have one element
+//pro tip use slice
+//keep going recursively
+//basecase array length are less than or equal to one
+//once have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at full length of array
+//once array merged back together, return merged array
+
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+
+  let mid = Math.floor(arr.length / 2);
+  //end not included w/slice
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+console.log(mergeSort([10, 24, 76, 73, 72, 1, 9]));

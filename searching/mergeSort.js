@@ -48,6 +48,8 @@ function merge(arr1, arr2) {
 //once have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at full length of array
 //once array merged back together, return merged array
 
+//O(log n)
+//as n grows, the number of times split up grows
 function mergeSort(arr) {
   if (arr.length <= 1) return arr;
 
@@ -57,4 +59,4 @@ function mergeSort(arr) {
   let right = mergeSort(arr.slice(mid));
   return merge(left, right);
 }
-console.log(mergeSort([10, 24, 76, 73, 72, 1, 9]));
+mergeSort([10, 24, 76, 73, 72, 1, 9]);

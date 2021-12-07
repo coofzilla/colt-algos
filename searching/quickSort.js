@@ -57,6 +57,6 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 
   return arr;
 }
-const array = [3, 44, 2, 5, 47, 15, 36, 26, 27, 38, 46, 4, 19, 50, 48, -1];
+const array = [4, 1, 2, 3];
 
-console.log(quickSort(array));
+quickSort(array);

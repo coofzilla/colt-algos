@@ -1,12 +1,16 @@
 //build some helpers
 //getDigit(num,place) returns digit in num at place
 
-function getDigit(num, place) {
-  const numArray = Array.from(String(num), Number);
-  for (let digit of numArray) {
-    if (digit === place) {
-      return digit;
-    }
-  }
+//this gives digit at index, but we want opposite
+// function getDigit(num, place) {
+//   const numArray = Array.from(String(num), Number);
+
+//   return numArray[place];
+// }
+// console.log(getDigit(1245, 0));
+
+function getDigit(num, i) {
+  return Math.floor((Math.abs(num) / Math.pow(10, i)) % 10);
 }
-getDigit(1245678, 8);
+
+console.log(getDigit(12345, 0));

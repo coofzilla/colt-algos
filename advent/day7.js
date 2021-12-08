@@ -77,6 +77,7 @@ function addUpTo(n) {
 const sorted = positionSample.sort((a, b) => a - b);
 
 function alignCrab(arr, start = 0, end = Math.max(...arr), fuelArr = []) {
+  console.log(end);
   if (end === 0) return;
 
   let fuel = 0;
@@ -94,3 +95,4 @@ function alignCrab(arr, start = 0, end = Math.max(...arr), fuelArr = []) {
 }
 
 console.log(alignCrab(puzzleInput));
+

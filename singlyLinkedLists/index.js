@@ -27,8 +27,10 @@ class SinglyLinkedList {
       this.head = newNode;
       this.tail = this.head;
     } else {
+      console.log('BEFORE', this);
       this.tail.next = newNode;
       this.tail = newNode;
+      console.log('AFTER', this);
     }
     this.length++;
     //returning this allows to chain on other methods f/this instance
@@ -39,6 +41,7 @@ class SinglyLinkedList {
     if (!this.head) return undefined;
 
     let current = this.head;
+
     let newTail = current;
     while (current.next) {
       newTail = current;
@@ -51,8 +54,10 @@ class SinglyLinkedList {
       this.head = null;
       this.tail = null;
     }
+
     return current;
   }
+
   traverse() {
     let current = this.head;
     while (current) {
@@ -63,8 +68,9 @@ class SinglyLinkedList {
 }
 
 let list = new SinglyLinkedList();
+
 list.push('Hello');
 list.push('Goodbye');
-list.push('!');
+// list.push('!');
 
 list.pop();

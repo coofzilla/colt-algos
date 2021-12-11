@@ -27,10 +27,8 @@ class SinglyLinkedList {
       this.head = newNode;
       this.tail = this.head;
     } else {
-      console.log('BEFORE', this);
       this.tail.next = newNode;
       this.tail = newNode;
-      console.log('AFTER', this);
     }
     this.length++;
     //returning this allows to chain on other methods f/this instance
@@ -58,6 +56,38 @@ class SinglyLinkedList {
     return current;
   }
 
+  shift() {
+    if (!this.head) return undefined;
+    //if no nodes, return undefined
+    let currentHead = this.head;
+    //store current head property in variable
+    this.head = currentHead.next;
+    //set head property to be current heads next property
+    this.length--;
+    if (this.length === 0) this.tail = null;
+    return currentHead;
+    //return value of node removed
+  }
+
+  unshift(val) {
+    let newNode = new Node(val);
+
+    if (!this.head) {
+      //if no head set head and tail to newly created node
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      //set newly created node next prop to be current head prop on list
+      this.head = newNode;
+      //set head prop on list to be newly created node
+    }
+    this.length++;
+    //increment length by1
+    return list;
+    //return linked list
+  }
+
   traverse() {
     let current = this.head;
     while (current) {
@@ -71,6 +101,7 @@ let list = new SinglyLinkedList();
 
 list.push('Hello');
 list.push('Goodbye');
-// list.push('!');
+list.push('!');
 
-list.pop();
+list.unshift('first');
+console.log(list);

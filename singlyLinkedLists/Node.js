@@ -31,11 +31,13 @@ let list = new SinglyLinkedList();
 // console.log(list.create());
 // console.log(list.mutate());
 
-let a = { name: 'apple' };
+//assign by reference
+const a = { name: 'apple' };
 let b = a;
 console.log(a, b);
+//if change ref, change original
 b.name = 'banana';
 console.log(a, b);
+//create a new reference
 b = { name: 'orange' };
 console.log(a, b);
-

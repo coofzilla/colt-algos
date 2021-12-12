@@ -88,6 +88,11 @@ class SinglyLinkedList {
     //return linked list
   }
 
+  //function accepts index
+  //if index less than zero or greater than equal to length of list, return undefined
+  //loop through list until reach index
+  //return node at specific index
+
   traverse() {
     let current = this.head;
     while (current) {

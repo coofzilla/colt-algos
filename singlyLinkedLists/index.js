@@ -100,11 +100,16 @@ class SinglyLinkedList {
     }
     return current;
   }
+  set(index, val) {
+    const node = this.get(index);
+    if (!node) return false;
+    if (node) node.val = val;
+    return true;
+  }
 
   traverse() {
     let current = this.head;
     while (current) {
-      console.log(current.val);
       current = current.next;
     }
   }
@@ -117,4 +122,4 @@ list.push('Goodbye');
 list.push('!');
 
 list.unshift('first');
-console.log(list);
+list.set(1, 'potato');

@@ -107,6 +107,21 @@ class SinglyLinkedList {
     return true;
   }
 
+  insert(index, val) {
+    if (index < 0 || index > list.length) return false;
+    //double ! converts to bool
+    if (index === list.length) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+    const newNode = new Node(val);
+    const previous = this.get(index - 1);
+    const temp = previous.next;
+
+    previous.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
+
   traverse() {
     let current = this.head;
     while (current) {
@@ -120,6 +135,6 @@ let list = new SinglyLinkedList();
 list.push('Hello');
 list.push('Goodbye');
 list.push('!');
-
 list.unshift('first');
-list.set(1, 'potato');
+list.insert(1, 'second');
+list.insert(5, 'last');

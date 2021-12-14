@@ -122,6 +122,19 @@ class SinglyLinkedList {
     return true;
   }
 
+  remove(index) {
+    if (index < 0 || index >= list.length) return undefined;
+    if (index === list.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+
+    const previous = this.get(index - 1);
+    let removed = previous.next;
+    previous.next = removed.next;
+
+    this.length--;
+    return removed;
+  }
+
   traverse() {
     let current = this.head;
     while (current) {
@@ -135,6 +148,6 @@ let list = new SinglyLinkedList();
 list.push('Hello');
 list.push('Goodbye');
 list.push('!');
-list.unshift('first');
-list.insert(1, 'second');
-list.insert(5, 'last');
+
+list.remove(0);
+console.log(list);

@@ -12,7 +12,7 @@ function maxSubarraySum(arr, num) {
   }
   //maxSum = 10 after first loop
   tempSum = maxSum;
-  //tempUm = 10 after first loop
+  //tempSum = 10 after first loop
 
   for (let i = num; i < arr.length; i++) {
     //i = 2 first loop

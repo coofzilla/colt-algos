@@ -65,9 +65,8 @@ class DoublyLinkedList {
       this.head = newNode;
       this.tail = newNode;
     } else {
-      let temp = this.head;
       this.head.previous = newNode;
-      newNode.next = temp;
+      newNode.next = this.head;
       this.head = newNode;
     }
 

@@ -12,6 +12,7 @@ class DoublyLinkedList {
     this.tail = null;
     this.length = 0;
   }
+
   push(val) {
     let newNode = new Node(val);
 
@@ -26,15 +27,28 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
-}
 
-//set prev prop on new created node to be tail
-//set tail to be newly created node
-//increment length
+  pop() {
+    if (!this.head) return undefined;
+    let poppedNode = this.tail;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = poppedNode.previous;
+      this.tail.next = null;
+      poppedNode.previous = null;
+    }
+    this.length--;
+    return poppedNode;
+  }
+}
 
 const list = new DoublyLinkedList();
 
 list.push(1);
 list.push(2);
 list.push(3);
+
+list.pop();
 console.log(list);

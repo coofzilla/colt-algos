@@ -98,6 +98,13 @@ class DoublyLinkedList {
       return currNode;
     }
   }
+
+  set(index, val) {
+    const node = this.get(index);
+    if (!node) return false;
+    if (node) node.val = val;
+    return true;
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -105,7 +112,5 @@ const list = new DoublyLinkedList();
 list.push(1);
 list.push(2);
 list.push(3);
-list.push(4);
-list.push(5);
 
-list.get(4);
+list.set(0, 0);

@@ -110,7 +110,7 @@ class SinglyLinkedList {
   insert(index, val) {
     if (index < 0 || index > list.length) return false;
     //double ! converts to bool
-    if (index === list.length) return !!this.push(val);
+    if (index === this.length) return !!this.push(val);
     if (index === 0) return !!this.unshift(val);
     const newNode = new Node(val);
     const previous = this.get(index - 1);

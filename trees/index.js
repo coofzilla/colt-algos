@@ -19,7 +19,7 @@ class BinarySearchTree {
     } else {
       let current = this.root;
       while (true) {
-        if (data === current.value) return undefined;
+        if (data === current.data) return undefined;
         if (data < current.data) {
           if (!current.left) {
             current.left = newNode;
@@ -40,7 +40,9 @@ class BinarySearchTree {
   }
 
   find(data) {
-    if (!this.root) return undefined;
+    if (!data && data !== 0) return false;
+    if (!this.root) return false;
+
     if (this.root.data === data) return true;
     let current = this.root;
     while (true) {
@@ -60,10 +62,22 @@ class BinarySearchTree {
 
 const tree = new BinarySearchTree();
 
-tree.insert(5);
-tree.insert(4);
-tree.insert(2);
-tree.insert(11);
-tree.insert(10);
+const insertAndFind = (tree, num) => {
+  const treeCount = {
+    inserted: 0,
+    found: 0,
+  };
+  for (let i = 0; i < num; i++) {
+    const randomNumber = Math.floor(Math.random() * 5000);
+    const inserted = tree.insert(randomNumber);
 
-console.log(tree);
+    if (inserted !== undefined) {
+      treeCount.inserted++;
+      const found = tree.find(randomNumber);
+      if (found) treeCount.found++;
+    }
+  }
+  console.log(treeCount);
+};
+
+insertAndFind(tree, 100);

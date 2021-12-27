@@ -58,6 +58,10 @@ class BinarySearchTree {
       }
     }
   }
+
+  breadthFirstSearch() {
+    
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -79,5 +83,3 @@ const insertAndFind = (tree, num) => {
   }
   console.log(treeCount);
 };
-
-insertAndFind(tree, 100);

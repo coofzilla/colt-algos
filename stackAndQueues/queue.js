@@ -63,5 +63,6 @@ que.enqueue(1);
 que.enqueue(2);
 que.dequeue();
 que.dequeue();
+que.enqueue();
 
 console.log(que);

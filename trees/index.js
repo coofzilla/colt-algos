@@ -60,7 +60,19 @@ class BinarySearchTree {
   }
 
   breadthFirstSearch() {
-    
+    const queue = [];
+    const data = [];
+    let node = this.root;
+
+    queue.push(node);
+
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node.data);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    return data;
   }
 }
 
@@ -72,7 +84,7 @@ const insertAndFind = (tree, num) => {
     found: 0,
   };
   for (let i = 0; i < num; i++) {
-    const randomNumber = Math.floor(Math.random() * 5000);
+    const randomNumber = Math.floor(Math.random() * 100);
     const inserted = tree.insert(randomNumber);
 
     if (inserted !== undefined) {
@@ -81,5 +93,7 @@ const insertAndFind = (tree, num) => {
       if (found) treeCount.found++;
     }
   }
-  console.log(treeCount);
+  return treeCount;
 };
+
+insertAndFind(tree, 6);

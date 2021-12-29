@@ -74,6 +74,21 @@ class BinarySearchTree {
     }
     return data;
   }
+
+  //Depth First Search DFS
+  preOrder() {
+    const data = [];
+    //modify to change starting point
+    let current = this.root;
+
+    function traverse(node) {
+      data.push(node.data);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return data;
+  }
 }
 
 const tree = new BinarySearchTree();

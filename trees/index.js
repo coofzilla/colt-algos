@@ -91,24 +91,16 @@ class BinarySearchTree {
   }
 }
 
-const tree = new BinarySearchTree();
+const insertRandBatch = (tree, num) => {
+  const nodes = [];
 
-const insertAndFind = (tree, num) => {
-  const treeCount = {
-    inserted: 0,
-    found: 0,
-  };
   for (let i = 0; i < num; i++) {
     const randomNumber = Math.floor(Math.random() * 100);
     const inserted = tree.insert(randomNumber);
 
-    if (inserted !== undefined) {
-      treeCount.inserted++;
-      const found = tree.find(randomNumber);
-      if (found) treeCount.found++;
-    }
+    if (inserted !== undefined) nodes.push(randomNumber);
   }
-  return treeCount;
+  return nodes;
 };
 
-insertAndFind(tree, 6);
+const tree = new BinarySearchTree();

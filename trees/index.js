@@ -77,32 +77,46 @@ class BinarySearchTree {
 
   //Depth First Search DFS
   preOrder() {
-    const data = [];
+    const dataArr = [];
     //modify to change starting point
     let current = this.root;
 
     function traverse(node) {
       if (!node) return undefined;
-      data.push(node.data);
+      dataArr.push(node.data);
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
     }
     traverse(current);
-    return data;
+    return dataArr;
   }
 
   postOrder() {
-    const data = [];
+    const dataArr = [];
     let current = this.root;
 
     const traverse = (node) => {
       if (!node) return undefined;
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
-      data.push(node.data);
+      dataArr.push(node.data);
     };
     traverse(current);
-    return data;
+    return dataArr;
+  }
+
+  inOrder() {
+    const dataArr = [];
+    let current = this.root;
+
+    const traverse = ({ data, left, right }) => {
+      if (left) traverse(left);
+      dataArr.push(data);
+      if (right) traverse(right);
+    };
+
+    traverse(current);
+    return dataArr;
   }
 }
 

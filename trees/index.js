@@ -82,10 +82,25 @@ class BinarySearchTree {
     let current = this.root;
 
     function traverse(node) {
+      if (!node) return undefined;
       data.push(node.data);
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
     }
+    traverse(current);
+    return data;
+  }
+
+  postOrder() {
+    const data = [];
+    let current = this.root;
+
+    const traverse = (node) => {
+      if (!node) return undefined;
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node.data);
+    };
     traverse(current);
     return data;
   }
@@ -104,3 +119,5 @@ const insertRandBatch = (tree, num) => {
 };
 
 const tree = new BinarySearchTree();
+
+insertRandBatch(tree, 10);

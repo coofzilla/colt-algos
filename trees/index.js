@@ -107,7 +107,6 @@ class BinarySearchTree {
 
   inOrder() {
     const dataArr = [];
-    let current = this.root;
 
     const traverse = ({ data, left, right }) => {
       if (left) traverse(left);
@@ -115,7 +114,7 @@ class BinarySearchTree {
       if (right) traverse(right);
     };
 
-    traverse(current);
+    traverse(this.root);
     return dataArr;
   }
 }
@@ -134,4 +133,4 @@ const insertRandBatch = (tree, num) => {
 
 const tree = new BinarySearchTree();
 
-insertRandBatch(tree, 10);
+insertRandBatch(tree, 6);

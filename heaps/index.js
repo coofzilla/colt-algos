@@ -37,10 +37,13 @@ class MaxBinaryHeap {
 
   removeMax() {
     const arr = this.values;
-    this.swap(arr, 0, arr.length - 1);
-    let removed = arr.pop();
-    this.sinkDown(arr);
-    return removed;
+    if (arr.length > 0) {
+      this.swap(arr, 0, arr.length - 1);
+      let removed = arr.pop();
+      this.sinkDown(arr);
+      return removed;
+    }
+    return undefined;
   }
 
   swap(arr, indx1, indx2) {
@@ -101,6 +104,13 @@ class MaxBinaryHeap {
   }
 }
 const heap = new MaxBinaryHeap();
-heap.insertRandBatch(6);
 
-heap.removeMax();
+heap.insertRandBatch(10);
+
+// heap.insert(41);
+// heap.insert(39);
+// heap.insert(33);
+// heap.insert(18);
+// heap.insert(27);
+// heap.insert(12);
+// heap.insert(55);

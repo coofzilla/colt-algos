@@ -22,6 +22,7 @@ class MaxBinaryHeap {
   }
 
   bubbleUp() {
+    //arr length - 1 gives last index
     let index = this.values.length - 1;
     const element = this.values[index];
 

@@ -83,23 +83,25 @@ class PriorityQueue {
 
   insertBatch(num) {
     for (let i = 0; i < num; i++) {
-      const randomNum = Math.floor(Math.random() * 5);
+      const randomNum = Math.floor(Math.random() * 6);
       switch (randomNum) {
         case 0:
-          this.enqueue('Immediate', 1);
+          this.enqueue('Life-threatening', 1);
           break;
         case 1:
-          this.enqueue('Emergency', 2);
+          this.enqueue('Chest Pain', 2);
           break;
         case 2:
-          this.enqueue('Urgent', 3);
+          this.enqueue('Abdominal Pain', 3);
           break;
         case 3:
-          this.enqueue('Semi-urgent', 4);
+          this.enqueue('Vomiting', 4);
           break;
         case 4:
-          this.enqueue('Non-urgent', 5);
+          this.enqueue('Fever', 5);
           break;
+        case 5:
+          this.enqueue('Cough', 6);
       }
     }
   }
@@ -107,4 +109,3 @@ class PriorityQueue {
 
 const queue = new PriorityQueue();
 queue.insertBatch(10);
-

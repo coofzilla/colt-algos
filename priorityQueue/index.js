@@ -28,15 +28,83 @@ class PriorityQueue {
       index = parentIndex;
     }
   }
+
+  dequeue() {
+    const arr = this.values;
+    if (arr.length > 0) {
+      this.swap(arr, 0, arr.length - 1);
+      let removed = arr.pop();
+      this.sinkDown(arr);
+      return removed;
+    }
+    return undefined;
+  }
+
+  sinkDown(arr) {
+    let index = 0;
+    const length = arr.length;
+    const element = arr[index];
+    while (true) {
+      let leftChildIndx = 2 * index + 1;
+      let rightChildIndx = 2 * index + 2;
+      let leftChild, rightChild;
+      let swap = null;
+
+      if (leftChildIndx < length) {
+        leftChild = arr[leftChildIndx];
+        if (leftChild.priority < element.priority) swap = leftChildIndx;
+      }
+
+      if (rightChildIndx < length) {
+        rightChild = arr[rightChildIndx];
+        if (rightChild.priority < element.priority) swap = rightChildIndx;
+      }
+
+      if (leftChild?.priority && rightChild?.priority < element?.priority) {
+        let smallest = Math.min(leftChild.priority, rightChild.priority);
+        smallest === leftChild.priority
+          ? (swap = leftChildIndx)
+          : (swap = rightChildIndx);
+      }
+
+      if (!swap) break;
+
+      this.swap(arr, index, swap);
+
+      index = swap;
+    }
+  }
+
   swap(arr, index1, index2) {
     let temp = arr[index1];
     arr[index1] = arr[index2];
     arr[index2] = temp;
   }
+
+  insertBatch(num) {
+    for (let i = 0; i < num; i++) {
+      const randomNum = Math.floor(Math.random() * 5);
+      switch (randomNum) {
+        case 0:
+          this.enqueue('Immediate', 1);
+          break;
+        case 1:
+          this.enqueue('Emergency', 2);
+          break;
+        case 2:
+          this.enqueue('Urgent', 3);
+          break;
+        case 3:
+          this.enqueue('Semi-urgent', 4);
+          break;
+        case 4:
+          this.enqueue('Non-urgent', 5);
+          break;
+      }
+    }
+  }
 }
 
 const queue = new PriorityQueue();
+queue.insertBatch(10);
 
-queue.enqueue('gunshot', 1);
-queue.enqueue('cancer', 2);
-queue.enqueue('flu', 3);

@@ -30,6 +30,24 @@ class HashTable {
       if (object[0] === key) return object[1];
     }
   }
+  keys() {
+    const keyArr = [];
+    for (let indices of this.keyMap) {
+      for (let keys of indices) {
+        keyArr.push(keys[0]);
+      }
+    }
+    return keyArr;
+  }
+  values() {
+    const valArr = [];
+    for (let indices of this.keyMap) {
+      for (let vals of indices) {
+        valArr.push(vals[1]);
+      }
+    }
+    return valArr;
+  }
 }
 
 const table = new HashTable(4);

@@ -43,7 +43,7 @@ class HashTable {
     const valArr = [];
     for (let indices of this.keyMap) {
       for (let vals of indices) {
-        valArr.push(vals[1]);
+        if (!valArr.includes(vals[1])) valArr.push(vals[1]);
       }
     }
     return valArr;
@@ -56,3 +56,5 @@ table.set('pink', 'peach');
 table.set('yellow', 'banana');
 table.set('red', 'apple');
 table.set('purple', 'eggplant');
+table.set('violet', 'eggplant');
+table.set('amethyst', 'eggplant');

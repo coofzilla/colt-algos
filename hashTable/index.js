@@ -3,7 +3,7 @@ class HashTable {
   constructor(size = 53) {
     this.keyMap = new Array(size);
   }
-
+  //deterministic; same result everytime
   hash(key) {
     let total = 0;
     //prime = dividied by itself and 1 (without remainder)

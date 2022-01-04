@@ -23,6 +23,18 @@ class HashTable {
     }
     this.keyMap[index].push([key, value]);
   }
+  get(key) {
+    const index = this.hash(key);
+    if (!this.keyMap[index]) return undefined;
+    for (let object of this.keyMap[index]) {
+      if (object[0] === key) return object[1];
+    }
+  }
 }
 
-const table = new HashTable();
+const table = new HashTable(4);
+table.set('green', 'kiwi');
+table.set('pink', 'peach');
+table.set('yellow', 'banana');
+table.set('red', 'apple');
+table.set('purple', 'eggplant');

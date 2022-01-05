@@ -36,20 +36,20 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
 
-  DFSRecursive(startNode) {
+  DFSRecursive(start) {
     const result = [];
     const visited = {};
 
     const traverse = (vertex) => {
-      if (!vertex) return;
+      if (!vertex) return null;
 
       visited[vertex] = true;
       result.push(vertex);
-      for (let vertices of this.adjacencyList[vertex]) {
-        if (visited[vertices] !== true) traverse(vertices);
+      for (let neighbor of this.adjacencyList[vertex]) {
+        if (visited[neighbor] !== true) traverse(neighbor);
       }
     };
-    traverse(startNode);
+    traverse(start);
 
     return result;
   }

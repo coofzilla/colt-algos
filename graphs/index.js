@@ -27,6 +27,7 @@ class Graph {
       (vertex) => vertex !== vertex1
     );
   }
+
   removeVertex(vertex) {
     while (this.adjacencyList[vertex].length) {
       const adjacentVertex = this.adjacencyList[vertex].pop();
@@ -34,18 +35,51 @@ class Graph {
     }
     delete this.adjacencyList[vertex];
   }
+
+  DFSRecursive(startNode) {
+    const result = [];
+    const visited = {};
+
+    const traverse = (vertex) => {
+      if (!vertex) return;
+
+      visited[vertex] = true;
+      result.push(vertex);
+      for (let vertices of this.adjacencyList[vertex]) {
+        if (visited[vertices] !== true) traverse(vertices);
+      }
+    };
+    traverse(startNode);
+
+    return result;
+  }
 }
 
 const graph = new Graph();
 
-graph.addVertex('Tokyo');
-graph.addVertex('Seoul');
-graph.addVertex('Bangkok');
-graph.addVertex('Shanghai');
+graph.addVertex('A');
+graph.addVertex('B');
+graph.addVertex('C');
+graph.addVertex('D');
+graph.addVertex('E');
+graph.addVertex('F');
 
-graph.addEdge('Seoul', 'Tokyo');
-graph.addEdge('Seoul', 'Bangkok');
-graph.addEdge('Seoul', 'Shanghai');
+graph.addEdge('A', 'B');
+graph.addEdge('A', 'C');
+graph.addEdge('B', 'D');
+graph.addEdge('C', 'E');
+graph.addEdge('D', 'E');
+graph.addEdge('D', 'F');
+graph.addEdge('E', 'F');
 
 
+// graph.addVertex('Tokyo');
+// graph.addVertex('Seoul');
+// graph.addVertex('Bangkok');
+// graph.addVertex('Shanghai');
+// graph.addVertex('Changi');
 
+// graph.addEdge('Seoul', 'Tokyo');
+// graph.addEdge('Seoul', 'Bangkok');
+// graph.addEdge('Seoul', 'Shanghai');
+// graph.addEdge('Tokyo', 'Changi');

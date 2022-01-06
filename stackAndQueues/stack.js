@@ -1,3 +1,4 @@
+//LIFO last in first out
 class Node {
   constructor(val) {
     this.val = val;
@@ -11,7 +12,7 @@ class Stack {
     this.last = null;
     this.size = 0;
   }
-  //in a stack push is in the beginning to get constant time
+  
   push(val) {
     let newNode = new Node(val);
     if (!this.first) {
@@ -43,7 +44,5 @@ let stack = new Stack();
 stack.push(1);
 stack.push(2);
 stack.push(3);
-stack.pop();
-stack.pop();
 
 console.log(stack);

@@ -53,33 +53,56 @@ class Graph {
 
     return result;
   }
+
+  DFSIterative(start) {
+    const stack = [start];
+    const visited = {};
+    const result = [];
+    let popped;
+
+    visited[start] = true;
+
+    while (stack.length) {
+      popped = stack.pop();
+      result.push(popped);
+
+      for (let neighbor of this.adjacencyList[popped]) {
+        if (visited[neighbor] !== true) {
+          visited[neighbor] = true;
+          stack.push(neighbor);
+        }
+      }
+    }
+
+    return result;
+  }
 }
 
 const graph = new Graph();
 
-graph.addVertex('A');
-graph.addVertex('B');
-graph.addVertex('C');
-graph.addVertex('D');
-graph.addVertex('E');
-graph.addVertex('F');
+// graph.addVertex('A');
+// graph.addVertex('B');
+// graph.addVertex('C');
+// graph.addVertex('D');
+// graph.addVertex('E');
+// graph.addVertex('F');
 
-graph.addEdge('A', 'B');
-graph.addEdge('A', 'C');
-graph.addEdge('B', 'D');
-graph.addEdge('C', 'E');
-graph.addEdge('D', 'E');
-graph.addEdge('D', 'F');
-graph.addEdge('E', 'F');
+// graph.addEdge('A', 'B');
+// graph.addEdge('A', 'C');
+// graph.addEdge('B', 'D');
+// graph.addEdge('C', 'E');
+// graph.addEdge('D', 'E');
+// graph.addEdge('D', 'F');
+// graph.addEdge('E', 'F');
 
+graph.addVertex('Tokyo');
+graph.addVertex('Seoul');
+graph.addVertex('Bangkok');
+graph.addVertex('Shanghai');
+graph.addVertex('Changi');
 
-// graph.addVertex('Tokyo');
-// graph.addVertex('Seoul');
-// graph.addVertex('Bangkok');
-// graph.addVertex('Shanghai');
-// graph.addVertex('Changi');
+graph.addEdge('Seoul', 'Tokyo');
+graph.addEdge('Seoul', 'Bangkok');
+graph.addEdge('Seoul', 'Shanghai');
+graph.addEdge('Tokyo', 'Changi');
 
-// graph.addEdge('Seoul', 'Tokyo');
-// graph.addEdge('Seoul', 'Bangkok');
-// graph.addEdge('Seoul', 'Shanghai');
-// graph.addEdge('Tokyo', 'Changi');

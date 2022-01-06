@@ -56,11 +56,11 @@ class Graph {
 
   DFSIterative(start) {
     const stack = [start];
-    const visited = {};
+    const visited = {
+      [start]: true,
+    };
     const result = [];
     let popped;
-
-    visited[start] = true;
 
     while (stack.length) {
       popped = stack.pop();
@@ -105,4 +105,3 @@ graph.addEdge('Seoul', 'Tokyo');
 graph.addEdge('Seoul', 'Bangkok');
 graph.addEdge('Seoul', 'Shanghai');
 graph.addEdge('Tokyo', 'Changi');
-

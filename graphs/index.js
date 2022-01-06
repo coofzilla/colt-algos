@@ -76,6 +76,29 @@ class Graph {
 
     return result;
   }
+  //FIFO
+  BFS(start) {
+    const queue = [start];
+    const visited = {
+      [start]: true,
+    };
+    const result = [];
+    let shifted;
+
+    while (queue.length) {
+      shifted = queue.shift();
+      result.push(shifted);
+
+      for (let neighbor of this.adjacencyList[shifted]) {
+        if (visited[neighbor] !== true) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      }
+    }
+
+    return result;
+  }
 }
 
 const graph = new Graph();

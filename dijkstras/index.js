@@ -30,6 +30,7 @@ class WeightedGraph {
 
   dijkstras(start, end) {
     const queue = new PriorityQueue();
+    queue.enqueue(start, 0);
     const distances = {
       [start]: 0,
     };
@@ -42,6 +43,7 @@ class WeightedGraph {
         distances[vertex] = Infinity;
         queue.enqueue(vertex, Infinity);
       }
+
       previous[vertex] = null;
     }
 
@@ -72,21 +74,33 @@ class WeightedGraph {
         }
       }
     }
+    console.log(path.concat(smallest).reverse());
     return path.concat(smallest).reverse();
   }
 }
 
 const graph = new WeightedGraph();
 
-graph.addVertex('Tokyo');
-graph.addVertex('Seoul');
-graph.addVertex('Bangkok');
-graph.addVertex('Shanghai');
-graph.addVertex('Changi');
+graph.addVertex('Tokyo'); //A
+graph.addVertex('Seoul'); //B
+graph.addVertex('Bangkok'); //C
+graph.addVertex('Shanghai'); //D
+graph.addVertex('Changi'); //E
+graph.addVertex('Vietnam'); //F
 
-graph.addEdge('Seoul', 'Tokyo', 1159);
-graph.addEdge('Seoul', 'Bangkok', 3720);
-graph.addEdge('Seoul', 'Shanghai', 866);
-graph.addEdge('Tokyo', 'Changi', 4613);
+graph.addEdge('Tokyo', 'Seoul', 1159);
+graph.addEdge('Tokyo', 'Bangkok', 4596);
+graph.addEdge('Seoul', 'Changi', 4659);
+graph.addEdge('Bangkok', 'Shanghai', 2889);
+graph.addEdge('Bangkok', 'Vietnam', 1005);
+graph.addEdge('Shanghai', 'Changi', 3796);
+graph.addEdge('Shanghai', 'Vietnam', 2335);
+graph.addEdge('Changi', 'Vietnam', 2847);
 
-graph.dijkstras('Tokyo', 'Changi');
+// graph.addEdge('Tokyo', 'Shanghai', 1758);
+// graph.addEdge('Tokyo', 'Changi', 4613);
+// graph.addEdge('Seoul', 'Bangkok', 3720);
+// graph.addEdge('Seoul', 'Shanghai', 866);
+// graph.addEdge('Bangkok', 'Changi', 1848);
+
+graph.dijkstras('Changi', 'Tokyo');

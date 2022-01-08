@@ -74,7 +74,7 @@ class WeightedGraph {
         }
       }
     }
-    console.log(path.concat(smallest).reverse());
+
     return path.concat(smallest).reverse();
   }
 }
@@ -103,4 +103,4 @@ graph.addEdge('Changi', 'Vietnam', 2847);
 // graph.addEdge('Seoul', 'Shanghai', 866);
 // graph.addEdge('Bangkok', 'Changi', 1848);
 
-graph.dijkstras('Changi', 'Tokyo');
+

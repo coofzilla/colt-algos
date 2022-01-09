@@ -20,3 +20,13 @@ function fibMemo(n, memo = []) {
   memo[n] = res;
   return res;
 }
+
+//tabulated bottom up
+function fibTab(n) {
+  if (n <= 2) return 1;
+  let fibNums = [0, 1, 1];
+  for (let i = 3; i <= n; i++) {
+    fibNums[i] = fibNums[i - 1] + fibNums[i - 2];
+  }
+  return fibNums[n];
+}

@@ -51,10 +51,12 @@ class HashTable {
 }
 
 const table = new HashTable(4);
-table.set('green', 'kiwi');
-table.set('pink', 'peach');
-table.set('yellow', 'banana');
-table.set('red', 'apple');
-table.set('purple', 'eggplant');
-table.set('violet', 'eggplant');
-table.set('amethyst', 'eggplant');
+table.set("green", "kiwi");
+table.set("pink", "peach");
+table.set("yellow", "banana");
+table.set("red", "apple");
+table.set("purple", "eggplant");
+table.set("violet", "eggplant");
+table.set("amethyst", "eggplant");
+
+

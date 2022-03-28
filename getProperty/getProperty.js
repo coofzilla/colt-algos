@@ -4,7 +4,8 @@ var obj = {
 var output = getProperty(obj, "key");
 
 function getProperty(obj, key) {
-  return obj[key];
+  return obj.key;
+  //   return obj[key];
 }
 
 console.log(output); // --> 'value'

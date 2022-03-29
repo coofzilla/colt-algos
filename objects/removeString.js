@@ -13,3 +13,4 @@ var obj = {
 };
 removeStringValues(obj);
 console.log(obj); // { age: 20 }
+

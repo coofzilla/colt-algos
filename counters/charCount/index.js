@@ -17,10 +17,20 @@ function charCount(str) {
   let charObj = {};
 
   for (let char of str) {
-    if (char !== ' ') {
+    if (char !== " ") {
       charObj[char] = ++charObj[char] || 1;
     }
   }
   console.log(charObj);
 }
-charCount('hello world');
+charCount("hello world");
+
+function countCharacter(str, char) {
+  let count = 0;
+  for (let character of str) {
+    if (character === char) {
+      count++;
+    }
+  }
+  return count;
+}

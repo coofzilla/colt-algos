@@ -3,7 +3,7 @@ function sumDigits(num) {
   const numString = num.toString();
 
   if (isNaN(numString[0])) {
-    let firstNum = numString[1];
+    let firstNum = Number(numString[1]);
     for (let i = 1; i < numString.length; i++) {
       total += Number(numString[i]);
     }

@@ -1,5 +1,5 @@
 const person = {
-  firstName: "Cassidy",
+  firstName: "Jack",
   lastName: "Jacobs",
 };
 // updateObject(person, "firstName", "Jack");
@@ -18,11 +18,8 @@ assertObjectsEqual(
 // passed
 
 function assertObjectsEqual(actual, expected, testName) {
-  const actualKeys = Object.keys(actual);
-  const expectedKeys = Object.keys(expected);
-
-  for (let i = 0; i < expectedKeys.length; i++) {
-    if (expectedKeys[i] !== actualKeys[i]) {
+  for (let key in expected) {
+    if (!actual[key]) {
       return console.log(
         `FAILED [${testName}] Expected ${JSON.stringify(
           expected
@@ -30,6 +27,7 @@ function assertObjectsEqual(actual, expected, testName) {
       );
     }
   }
+
   for (let key in actual) {
     if (actual[key] !== expected[key]) {
       return console.log(

@@ -10,4 +10,20 @@ assertArraysEqual(actual, expected, "splits string into array of characters");
 // console output:
 // FAILED [generates first 7 Fibonacci numbers] Expected "1, 1, 2, 3, 5, 8, 13", but got "2, 3, 5, 8, 13, 21, 34"
 
-function assertArraysEqual(actual, expected, testName) {}
+function assertArraysEqual(actual, expected, testName) {
+  if (actual.length !== expected.length) {
+    return console.log(
+      `FAILED [${testName}] Expected "${expected}", but got "${actual}"`
+    );
+  }
+  for (let i = 0; i < actual.length; i++) {
+    if (actual[i] !== expected[i]) {
+      return console.log(
+        `FAILED [${testName}] Expected "${expected}", but got "${actual}"`
+      );
+    }
+  }
+  return console.log("passed");
+}
+
+// expected 'FAILED [my test] Expected "1,2,3,4" but got "1,2,3"' to deeply equal 'FAILED [my test] Expected "1,2,3,4", but got "1,2,3"'

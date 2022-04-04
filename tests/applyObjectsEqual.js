@@ -43,9 +43,9 @@ const expectedOutput = {
   lastName: "Riccolo",
   fullName: "Chris Riccolo",
 };
-const actualName = addFullNameProp(person);
+const outputObject = addFullNameProp(person);
 assertObjectsEqual(
-  actualName,
+  outputObject,
   expectedOutput,
   "should add a property with the full name of the person"
 );

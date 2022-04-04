@@ -15,7 +15,7 @@ function map(array, callbackFunction) {
 
 function cubeAll(numbers) {
   return map(numbers, function (n) {
-    return n * n;
+    return n * n * n;
   });
 }
 
@@ -43,4 +43,6 @@ assertArraysEqual(
   [2, 3, 4],
   "should add one to each value in array"
 );
+const actualCube = cubeAll(array);
 const cubedArray = [1, 8, 27];
+assertArraysEqual(actualCube, cubedArray, "should cube each value in array");

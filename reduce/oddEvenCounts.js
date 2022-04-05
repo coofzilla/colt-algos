@@ -1,5 +1,6 @@
 const numbers = [5, 3, 8, 6, 9, 1, 0, 2, 2];
 const oddEvenCounts = numbers.reduce(
+  //previous value, current value, current index, array
   (counts, number, index, array) => {
     function isOdd(number) {
       return number % 2 !== 0;

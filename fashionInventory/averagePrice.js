@@ -32,6 +32,7 @@ const expected = {
 
 function calculateAveragePricePerDesigner(inventory) {
   return inventory.reduce(
+    //object is actually the current value because reduce basically loops through the array
     (previousState, object, index, array) => {
       let sum = 0;
       for (let shoe of object.shoes) {

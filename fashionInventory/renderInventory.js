@@ -27,5 +27,4 @@ function renderInventory(inventory) {
   return flatList;
 }
 
-//Create helper functions if needed
 renderInventory(currentInventory);

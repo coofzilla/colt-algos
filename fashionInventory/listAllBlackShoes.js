@@ -17,4 +17,16 @@ const currentInventory = [
   },
 ];
 
-function listAllBlackShoes(inventory) {}
+function listAllBlackShoes(inventory) {
+  let blackShoes = "";
+  for (let obj of inventory) {
+    for (let shoes of obj.shoes) {
+      if (shoes.name.includes("black")) {
+        blackShoes += `${obj.name}, ${shoes.name}, ${shoes.price}\n`;
+      }
+    }
+  }
+  return blackShoes;
+}
+
+listAllBlackShoes(currentInventory);

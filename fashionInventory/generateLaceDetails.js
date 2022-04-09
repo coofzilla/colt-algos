@@ -37,7 +37,7 @@ const expectedResult = [
 ];
 
 function generateLaceDetails(inventory) {
-  const finalResult = inventory.reduce((result, element, index, array) => {
+  const finalResult = inventory.reduce((result, element) => {
     for (let shoe of element.shoes) {
       let obj = {};
       if (shoe.name.includes("lace")) {

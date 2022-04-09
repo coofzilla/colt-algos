@@ -8,7 +8,7 @@
 
 var input = "a short example";
 var output = flipEveryNChars(input, 5);
-console.log(output); // --> ohs axe trelpma
+// console.log(output); // --> ohs axe trelpma
 
 // Breaking this example down piece by piece:
 // 'a sho' -> 'ohs a'
@@ -22,6 +22,7 @@ function flipEveryNChars(input, n) {
   const flipped = array.reduce((previousValue, el, index, array) => {
     array = array.splice(0, n);
     previousValue += array.reverse().join("");
+
     return previousValue;
   }, "");
 

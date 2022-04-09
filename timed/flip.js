@@ -14,7 +14,7 @@ function flipPairs(input) {
     }
 
     flipped += input[i + 1];
-    flipped += input[i];
+    flipped += input[i];    
   }
   return flipped;
 }

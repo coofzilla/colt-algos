@@ -25,11 +25,15 @@ function binarySearch(arr, searchValue) {
   let mid = Math.floor((start + end) / 2);
 
   while (arr[mid] !== searchValue && start <= end) {
+    //define where the new end should be
     if (searchValue < arr[mid]) end = mid - 1;
+    //define where the new start point is
     else start = mid + 1;
+    //calc new mid for remaining chunk
     mid = Math.floor((start + end) / 2);
   }
+  //didn't go through loop because found the value
   return arr[mid] === searchValue ? mid : null;
 }
 
-console.log(binarySearch([1, 3, 16, 22, 31, 33, 34], 31));
+console.log(binarySearch([1, 3, 16, 22, 31, 33, 34], 3));

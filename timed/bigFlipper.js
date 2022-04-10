@@ -28,3 +28,17 @@ function flipEveryNChars(input, n) {
 
   return flipped;
 }
+
+const result = flipN(input, 5);
+console.log(result);
+
+function flipN(input, n) {
+  const arr = input.split("");
+  const flippedArr = [];
+
+  while (arr.length) {
+    flippedArr.push(arr.splice(0, n).reverse().join(""));
+  }
+
+  return flippedArr.join("");
+}

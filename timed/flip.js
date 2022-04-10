@@ -3,7 +3,7 @@
 var input =
   "check out how interesting this problem is, it's insanely interesting!";
 var output = flipPairs(input);
-console.log(output); // --> hcce kuo toh wnietertsni ghtsip orlbmei ,si 't sniasenyli tnreseitgn!
+// console.log(output); // --> hcce kuo toh wnietertsni ghtsip orlbmei ,si 't sniasenyli tnreseitgn!
 
 function flipPairs(input) {
   let flipped = "";
@@ -14,7 +14,20 @@ function flipPairs(input) {
     }
 
     flipped += input[i + 1];
-    flipped += input[i];    
+    flipped += input[i];
   }
   return flipped;
+}
+
+const result = flipPairs2(input);
+
+function flipPairs2(input) {
+  const arr = input.split("");
+  const flippedArr = [];
+
+  for (let i = 0; i < arr.length; i += 2) {
+    flippedArr.push(arr[i + 1]);
+    flippedArr.push(arr[i]);
+  }
+  return flippedArr.join("");
 }

@@ -43,4 +43,4 @@ function binarySearchCleaner(arr, searchValue) {
 }
 
 console.log(binarySearch(numbersArray, 30));
-console.log(binarySearchCleaner(numbersArray, 1));
+console.log(binarySearchCleaner(numbersArray, 5));

@@ -19,6 +19,8 @@
 // * If you don't find the value, you can return null.
 // * If at any point you calculate the index of the midpoint and get a fractional number, just round it down ("floor" it).
 
+const numArr = [1, 3, 16, 22, 31, 33, 34];
+
 function binarySearch(arr, searchValue) {
   let start = 0;
   let end = arr.length - 1;
@@ -36,4 +38,20 @@ function binarySearch(arr, searchValue) {
   return arr[mid] === searchValue ? mid : null;
 }
 
-console.log(binarySearch([1, 3, 16, 22, 31, 33, 34], 3));
+binarySearch([1, 3, 16, 22, 31, 33, 34], 3);
+
+function bSearch(arr, searchValue) {
+  let start = 0;
+  let end = arr.length - 1;
+  let middle = Math.floor((start + end) / 2);
+
+  while (arr[middle] !== searchValue && start <= end) {
+    if (searchValue < arr[middle]) end = middle - 1;
+    else start = middle + 1;
+    middle = Math.floor((start + end) / 2);
+  }
+  return arr[middle] === searchValue ? middle : null;
+}
+
+const result = bSearch(numArr, 1);
+console.log(result);

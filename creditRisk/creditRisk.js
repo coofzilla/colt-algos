@@ -81,6 +81,7 @@ function customerRiskList(customers) {
 }
 
 const riskList = customerRiskList(dataSet);
+console.log(riskList);
 
 function approvedList(customerRiskList) {
   let approvedCount = 0;

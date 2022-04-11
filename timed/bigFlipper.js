@@ -30,7 +30,6 @@ function flipEveryNChars(input, n) {
 }
 
 const result = flipN(input, 5);
-console.log(result);
 
 function flipN(input, n) {
   const arr = input.split("");
@@ -42,3 +41,5 @@ function flipN(input, n) {
 
   return flippedArr.join("");
 }
+
+

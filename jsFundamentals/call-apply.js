@@ -21,12 +21,15 @@ printFullName.apply(name2, ['Utah']);
 
 var x = 30;
 
-function get (x) { return x; }
-function set (value) { x = value; }
+function get(x) {
+  return x;
+}
+function set(value) {
+  x = value;
+}
 
 set(10);
 var result = get(20);
-console.log(result)
-
+console.log(result);
 
 export {};
